@@ -44,8 +44,8 @@ window.PROJECTS = [
     role: '关卡 / 手感 / 障碍编排',
     year: '2026.10',
     tags: ['跑酷', '手感', '原型'],
-    link: '',
-    linkLabel: 'Demo 制作中',
+    link: 'https://caimingwang3-lgtm.github.io/personal-park/games/peach/',
+    linkLabel: '在线试玩',
     accent: '#FF8FA3',
     emblem: 'peach'
   },
@@ -59,8 +59,8 @@ window.PROJECTS = [
     role: '玩法 / 关卡 / 视觉方向',
     year: '2026.10',
     tags: ['三消', '收集', '关卡'],
-    link: '',
-    linkLabel: 'Demo 制作中',
+    link: 'https://caimingwang3-lgtm.github.io/personal-park/games/cabinet/',
+    linkLabel: '在线试玩',
     accent: '#C9B6FF',
     emblem: 'cabinet'
   },

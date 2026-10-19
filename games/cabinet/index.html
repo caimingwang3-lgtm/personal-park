@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>异想标本馆 · Cabinet of Curiosities</title>
+    <style>
+      :root {
+        --serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+      body {
+        background:
+          radial-gradient(1200px 700px at 50% -10%, rgba(90, 190, 255, 0.18), transparent 70%),
+          radial-gradient(900px 620px at 12% 108%, rgba(155, 107, 255, 0.16), transparent 65%),
+          radial-gradient(900px 620px at 90% 104%, rgba(255, 160, 90, 0.14), transparent 68%),
+          linear-gradient(160deg, #051019 0%, #071a26 48%, #030c14 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px;
+        color: #f6ecd8;
+        font-family: var(--serif);
+        overflow: hidden;
+      }
+      #game-container {
+        position: relative;
+        width: min(96vw, 1320px);
+        aspect-ratio: 16 / 9;
+        max-height: calc(100vh - 28px);
+        border-radius: 22px;
+        overflow: hidden;
+        background: #04101a;
+        border: 1px solid rgba(232, 180, 92, 0.45);
+        box-shadow:
+          0 40px 90px rgba(0, 0, 0, 0.7),
+          0 0 0 1px rgba(0, 0, 0, 0.7),
+          0 0 70px rgba(90, 190, 255, 0.08),
+          inset 0 0 90px rgba(0, 0, 0, 0.65);
+      }
+      #game-container canvas {
+        display: block;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-CcPW9CZI.js"></script>
+  </head>
+  <body>
+    <div id="game-container"></div>
+  </body>
+</html>
