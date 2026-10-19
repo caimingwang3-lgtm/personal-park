@@ -363,7 +363,7 @@ function buildCabinet(accent, rng) {
     group: g,
     update(t, dt, energy) {
       core.rotation.y = t * 0.6;
-      core.position.y = -0.28 + Math.sin(t * 1.2) * 0.08;
+      core.position.y = -0.2 + Math.sin(t * 1.2) * 0.08;
       ring.rotation.z = t * 0.12;
       dome.rotation.y = Math.sin(t * 0.25) * 0.06;
       glow.material.opacity = 0.14 + energy * 0.2;
