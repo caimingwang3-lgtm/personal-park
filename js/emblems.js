@@ -252,7 +252,7 @@ function buildPeach(accent, rng) {
 
   const body = new THREE.Mesh(
     new THREE.SphereGeometry(1.15, 30, 24),
-    candy(CANDY.coral, { roughness: 0.5, clearcoat: 0.6 })
+    candy(0xFFC24D, { roughness: 0.5, clearcoat: 0.6 })
   );
   body.scale.set(1.08, 1, 1.05);
   body.position.y = 0.12;
@@ -331,17 +331,17 @@ function buildCabinet(accent, rng) {
   // 玻璃罩
   const dome = new THREE.Mesh(
     new THREE.SphereGeometry(1.02, 28, 20, 0, Math.PI * 2, 0, Math.PI * 0.62),
-    jelly(CANDY.blue, 0.38)
+    jelly(CANDY.blue, 0.22)
   );
   dome.position.y = -0.75;
   g.add(dome);
 
   // 罩内标本核心
   const core = new THREE.Mesh(
-    new THREE.OctahedronGeometry(0.42, 0),
+    new THREE.OctahedronGeometry(0.55, 0),
     candy(accent, { roughness: 0.12, metalness: 0.15, emissive: accent, emissiveIntensity: 0.35 })
   );
-  core.position.y = -0.28;
+  core.position.y = -0.2;
   g.add(core);
 
   // 黄铜环
