@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WCM — 创意能量塔 · 作品集</title>
+<meta name="description" content="WCM 的个人作品集：数据分析 × 休闲游戏关卡设计。漂浮岛上的项目与 Casual Game Lab。">
+<meta name="theme-color" content="#FFF7ED">
+<meta property="og:type" content="website">
+<meta property="og:title" content="WCM — 创意能量塔">
+<meta property="og:description" content="数据分析 × 休闲游戏关卡设计。漂浮在云海上的作品集。">
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{ "imports": { "three": "./assets/three.module.js" } }
+</script>
+<script src="js/content.js"></script>
+</head>
+<body>
+
+<canvas id="stage" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<a class="skip" href="#plain">跳到文字版内容</a>
+
+<header class="hud hud-top">
+  <a class="brand" href="#top" aria-label="回到顶部">
+    <span class="brand-mark">WCM</span><span class="brand-dot">✦</span><span class="brand-year">2027</span>
+  </a>
+  <nav class="hud-links" aria-label="联系方式">
+    <a id="nav-mail" href="#" rel="nofollow">EMAIL</a>
+    <a id="nav-git" href="#" target="_blank" rel="noopener">GITHUB</a>
+  </nav>
+</header>
+
+<aside class="depth" aria-hidden="true">
+  <span class="depth-cap">LEVEL</span>
+  <div class="depth-track">
+    <span class="depth-line"></span>
+    <span class="depth-ticks" id="depth-ticks"></span>
+    <span class="depth-mark" id="depth-mark"></span>
+  </div>
+  <span class="depth-value" id="depth-value">000</span>
+</aside>
+
+<!-- 所有浮层固定在视口，实际滚动由 #track 的高度驱动 -->
+<div class="overlay">
+
+  <section class="hero" id="hero" aria-label="序章">
+    <p class="eyebrow">PERSONAL PARK&nbsp;&nbsp;/&nbsp;&nbsp;<span id="year-range">2026—2027</span></p>
+    <div class="hero-brand" id="hero-brand" aria-label="WCM · 异想标本馆">
+      <svg class="hero-logo" viewBox="0 0 160 160" role="img" aria-label="猫头鹰馆长标志">
+        <defs>
+          <linearGradient id="owlBadge" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FFFDF9"/>
+            <stop offset="1" stop-color="#FFE7C9"/>
+          </linearGradient>
+        </defs>
+        <circle cx="80" cy="80" r="74" fill="url(#owlBadge)" stroke="#E8B45C" stroke-width="4"/>
+        <circle cx="80" cy="80" r="62" fill="none" stroke="#C9B6FF" stroke-width="2" stroke-dasharray="4 8" opacity=".6"/>
+        <path d="M52 55 Q80 22 108 55 L108 61 L52 61 Z" fill="#5B4B71"/>
+        <rect x="44" y="59" width="72" height="9" rx="4.5" fill="#E8B45C"/>
+        <ellipse cx="80" cy="105" rx="33" ry="30" fill="#FFFDF9" stroke="#CBB9D9" stroke-width="3"/>
+        <path d="M50 98 Q34 108 42 124 Q56 120 58 108Z" fill="#EFE7FF" stroke="#CBB9D9" stroke-width="2"/>
+        <path d="M110 98 Q126 108 118 124 Q104 120 102 108Z" fill="#EFE7FF" stroke="#CBB9D9" stroke-width="2"/>
+        <circle cx="66" cy="92" r="15" fill="#FFFDF9" stroke="#4A3F5C" stroke-width="3"/>
+        <circle cx="94" cy="92" r="15" fill="#FFFDF9" stroke="#4A3F5C" stroke-width="3"/>
+        <circle cx="66" cy="92" r="6.5" fill="#4A3F5C"/>
+        <circle cx="94" cy="92" r="6.5" fill="#4A3F5C"/>
+        <circle cx="63" cy="89" r="2.2" fill="#FFFDF9"/>
+        <circle cx="91" cy="89" r="2.2" fill="#FFFDF9"/>
+        <path d="M80 101 L73 110 L87 110 Z" fill="#FFB36B" stroke="#E39A52" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M70 134 l-6 6 M70 134 l0 7 M70 134 l6 6" stroke="#E8B45C" stroke-width="3" stroke-linecap="round"/>
+        <path d="M90 134 l-6 6 M90 134 l0 7 M90 134 l6 6" stroke="#E8B45C" stroke-width="3" stroke-linecap="round"/>
+        <path d="M126 40 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5Z" fill="#FFB36B" opacity=".9"/>
+      </svg>
+      <span class="hero-wordmark">WCM</span>
+    </div>
+    <p class="hero-role" id="hero-role">DATA ANALYST <i>×</i> LEVEL DESIGNER</p>
+    <p class="hero-line" id="hero-line">用数据找规律，用关卡造体验。</p>
+    <div class="hero-chips">
+      <span class="chip chip-lilac">休闲游戏</span>
+      <span class="chip chip-mint">关卡节奏</span>
+      <span class="chip chip-coral">数据洞察</span>
+    </div>
+    <a class="scroll-cue" id="scroll-cue" href="#plain">
+      <span class="scroll-label">开始逛逛</span>
+      <span class="scroll-bar"><i></i></span>
+    </a>
+  </section>
+
+  <div class="panels" id="panels"></div>
+
+  <!-- Casual Game Lab：漂浮休闲岛 -->
+  <section class="lab" id="lab" aria-label="休闲游戏实验场">
+    <div class="lab-copy">
+      <p class="eyebrow" id="lab-eyebrow">CASUAL GAME LAB / 03</p>
+      <h2 class="lab-title" id="lab-title">休闲游戏实验场</h2>
+      <p class="lab-intro" id="lab-intro"></p>
+      <div class="lab-tags" id="lab-tags"></div>
+      <div class="lab-cases" id="lab-cases"></div>
+    </div>
+
+    <div class="lab-world" aria-hidden="true">
+      <div class="lab-sun"></div>
+      <div class="lab-cloud c1"></div>
+      <div class="lab-cloud c2"></div>
+      <div class="lab-cloud c3"></div>
+      <div class="lab-island">
+        <div class="lab-island-top"></div>
+        <div class="lab-island-body"></div>
+        <div class="lab-board" id="lab-board"></div>
+        <div class="lab-gem g1"></div>
+        <div class="lab-gem g2"></div>
+        <div class="lab-gem g3"></div>
+        <div class="lab-flag"></div>
+        <span class="lab-spark s1">✦</span>
+        <span class="lab-spark s2">✦</span>
+        <span class="lab-spark s3">✦</span>
+      </div>
+      <p class="lab-hint">点糖果</p>
+    </div>
+  </section>
+
+  <section class="outro" id="outro" aria-label="联系">
+    <p class="eyebrow">CONTACT</p>
+    <h2 class="outro-title">云海尽头，<br>留一盏灯。</h2>
+    <p class="outro-sub">项目、实习、合作，直接写信。</p>
+    <a class="outro-mail" id="outro-mail" href="#"></a>
+    <nav class="outro-links">
+      <a id="outro-git" href="#" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </section>
+
+</div>
+
+<!-- 无障碍 / 无 JS 兜底：真实可读的文字内容 -->
+<main id="plain" class="sr-only">
+  <h2>WCM — 作品集</h2>
+  <p id="plain-role"></p>
+  <ul id="plain-list"></ul>
+  <p>联系：<a id="plain-mail" href="#"></a></p>
+</main>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <span class="loader-star">✦</span>
+    <span class="loader-line"><i></i></span>
+    <span class="loader-text">BUILDING THE PARK</span>
+  </div>
+</div>
+
+<div id="track" aria-hidden="true"></div>
+
+<pre id="errlog" hidden></pre>
+
+<noscript>
+  <div class="noscript">本站需要 JavaScript 才能运行 3D 场景。请直接邮件联系：<a href="mailto:2093722186@qq.com">2093722186@qq.com</a></div>
+</noscript>
+
+<script>
+  // 开发/截图辅助：?p=0.45 直接把滚动定位到 45%；?still=0.7 不滚动、钉在某一进度
+  window.__DSH_PARAMS = new URLSearchParams(location.search);
+  window.addEventListener('error', function (e) {
+    var el = document.getElementById('errlog');
+    if (!el) return;
+    el.hidden = false;
+    el.textContent += 'ERROR: ' + (e.message || e) + '\n' + ((e.error && e.error.stack) || '') + '\n';
+  });
+</script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

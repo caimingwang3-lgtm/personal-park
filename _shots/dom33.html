@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="--accent: #ff6a3d;"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>王财明 — DATA ANALYST × LEVEL DESIGNER</title>
+<meta name="description" content="王财明的个人作品集：数据分析 × 游戏关卡设计。用数据找规律，用关卡造体验。">
+<meta name="theme-color" content="#04070a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="王财明 — 数据 × 关卡">
+<meta property="og:description" content="数据分析 × 游戏关卡设计。幽影峡谷 Boss 战原型、月下疾走屋顶跑酷。">
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{ "imports": { "three": "./assets/three.module.js" } }
+</script>
+<script src="js/content.js"></script>
+</head>
+<body>
+
+<canvas id="stage" aria-hidden="true" data-engine="three.js r160" width="758" height="426"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<a class="skip" href="#plain">跳到文字版内容</a>
+
+<header class="hud hud-top">
+  <a class="brand" href="#top" aria-label="回到顶部">
+    <span class="brand-mark">WCM</span><span class="brand-dot">·</span><span class="brand-year">2027</span>
+  </a>
+  <nav class="hud-links" aria-label="联系方式">
+    <a id="nav-mail" href="mailto:2093722186@qq.com" rel="nofollow">EMAIL</a>
+    <a id="nav-git" href="https://github.com/caimingwang3-lgtm" target="_blank" rel="noopener">GITHUB</a>
+  </nav>
+</header>
+
+<aside class="depth" aria-hidden="true">
+  <span class="depth-cap">DEPTH</span>
+  <div class="depth-track">
+    <span class="depth-line"></span>
+    <span class="depth-ticks" id="depth-ticks"><span class="tick" data-i="0" style="top: 33%;"><span>01</span></span><span class="tick" data-i="1" style="top: 67%;"><span>02</span></span><span class="tick" data-end="1" style="top: 100%;"></span></span>
+    <span class="depth-mark" id="depth-mark" style="top: 33%;"></span>
+  </div>
+  <span class="depth-value" id="depth-value">330</span>
+</aside>
+
+<!-- 所有浮层固定在视口，实际滚动由 #track 的高度驱动 -->
+<div class="overlay">
+
+  <section class="hero is-hidden" id="hero" aria-label="序章">
+    <p class="eyebrow">PORTFOLIO&nbsp;&nbsp;/&nbsp;&nbsp;<span id="year-range">2026—2027</span></p>
+    <h1 class="hero-name" id="hero-name">王财明</h1>
+    <p class="hero-role" id="hero-role">DATA ANALYST <i>×</i> LEVEL DESIGNER</p>
+    <p class="hero-line" id="hero-line">用数据找规律，用关卡造体验。</p>
+    <a class="scroll-cue is-hidden" id="scroll-cue" href="#plain">
+      <span class="scroll-label">SCROLL</span>
+      <span class="scroll-bar"><i></i></span>
+    </a>
+  </section>
+
+  <div class="panels" id="panels"><article class="panel on" id="project-0" style="--accent: #ff6a3d;">
+      <div class="panel-head">
+        <span class="panel-index">01</span>
+        <span class="panel-rule"></span>
+        <span class="panel-year">2026.10</span>
+      </div>
+      <h2 class="panel-title">幽影峡谷</h2>
+      <p class="panel-sub">裂隙巫妖 · 横版 Boss 战原型</p>
+      <p class="panel-line">用招式密度，而不是数值膨胀制造压力。</p>
+      <div class="panel-meta">
+        <span>玩法 / 关卡 / 数值 / Boss 状态机</span>
+        <span>Boss 战</span><span>状态机</span><span>配表</span>
+      </div>
+      <a class="panel-link" href="https://caimingwang3-lgtm.github.io/game-demo-portfolio/" target="_blank" rel="noopener">
+        在线试玩 <span class="arr">↗</span>
+      </a></article><article class="panel" id="project-1" style="--accent: #8fb8ff;">
+      <div class="panel-head">
+        <span class="panel-index">02</span>
+        <span class="panel-rule"></span>
+        <span class="panel-year">2026.10</span>
+      </div>
+      <h2 class="panel-title">月下疾走</h2>
+      <p class="panel-sub">Cathedral Sprint · 哥特屋顶跑酷</p>
+      <p class="panel-line">在屋脊之间，用障碍池控制跑酷的呼吸。</p>
+      <div class="panel-meta">
+        <span>关卡节奏 / 障碍池 / 四段式难度</span>
+        <span>跑酷</span><span>关卡节奏</span><span>PWA</span>
+      </div>
+      <a class="panel-link" href="https://caimingwang3-lgtm.github.io/game-demo-portfolio/cathedral-sprint/" target="_blank" rel="noopener">
+        在线试玩 <span class="arr">↗</span>
+      </a></article></div>
+
+  <section class="outro" id="outro" aria-label="联系">
+    <p class="eyebrow">CONTACT</p>
+    <h2 class="outro-title">在地层底部，<br>留一盏灯。</h2>
+    <p class="outro-sub">项目、实习、合作，直接写信。</p>
+    <a class="outro-mail" id="outro-mail" href="mailto:2093722186@qq.com">2093722186@qq.com</a>
+    <nav class="outro-links">
+      <a id="outro-git" href="https://github.com/caimingwang3-lgtm" target="_blank" rel="noopener">GitHub ↗</a>
+      <a id="outro-demo" href="https://caimingwang3-lgtm.github.io/game-demo-portfolio/" target="_blank" rel="noopener">Demo 合集 ↗</a>
+    </nav>
+  </section>
+
+</div>
+
+<!-- 无障碍 / 无 JS 兜底：真实可读的文字内容 -->
+<main id="plain" class="sr-only">
+  <h2>王财明 — 作品集</h2>
+  <p id="plain-role">DATA ANALYST × LEVEL DESIGNER｜用数据找规律，用关卡造体验。</p>
+  <ul id="plain-list"><li><h3>幽影峡谷 — 裂隙巫妖 · 横版 Boss 战原型</h3>
+      <p>用招式密度，而不是数值膨胀制造压力。</p>
+      <p>玩法 / 关卡 / 数值 / Boss 状态机｜2026.10</p>
+      <p><a href="https://caimingwang3-lgtm.github.io/game-demo-portfolio/" rel="noopener">在线试玩</a></p></li><li><h3>月下疾走 — Cathedral Sprint · 哥特屋顶跑酷</h3>
+      <p>在屋脊之间，用障碍池控制跑酷的呼吸。</p>
+      <p>关卡节奏 / 障碍池 / 四段式难度｜2026.10</p>
+      <p><a href="https://caimingwang3-lgtm.github.io/game-demo-portfolio/cathedral-sprint/" rel="noopener">在线试玩</a></p></li></ul>
+  <p>联系：<a id="plain-mail" href="mailto:2093722186@qq.com">2093722186@qq.com</a></p>
+</main>
+
+
+
+<div id="track" aria-hidden="true" style="height: 2343px;"></div>
+
+<pre id="errlog" hidden=""></pre>
+
+<noscript>
+  <div class="noscript">本站需要 JavaScript 才能运行 3D 场景。请直接邮件联系：<a href="mailto:2093722186@qq.com">2093722186@qq.com</a></div>
+</noscript>
+
+<script>
+  // 开发/截图辅助：?p=0.45 直接把滚动定位到 45%
+  window.__DSH_PARAMS = new URLSearchParams(location.search);
+  window.addEventListener('error', function (e) {
+    var el = document.getElementById('errlog');
+    if (!el) return;
+    el.hidden = false;
+    el.textContent += 'ERROR: ' + (e.message || e) + '\n' + ((e.error && e.error.stack) || '') + '\n';
+  });
+</script>
+<script type="module" src="js/main.js"></script>
+
+
+</body></html>
