@@ -44,7 +44,7 @@ window.PROJECTS = [
     role: '关卡 / 手感 / 障碍编排',
     year: '2026.10',
     tags: ['跑酷', '手感', '原型'],
-    link: 'https://caimingwang3-lgtm.github.io/personal-park/games/peach/',
+    link: 'games/peach/',
     linkLabel: '在线试玩',
     accent: '#FF8FA3',
     emblem: 'peach'
@@ -59,14 +59,29 @@ window.PROJECTS = [
     role: '玩法 / 关卡 / 视觉方向',
     year: '2026.10',
     tags: ['三消', '收集', '关卡'],
-    link: 'https://caimingwang3-lgtm.github.io/personal-park/games/cabinet/',
+    link: 'games/cabinet/',
     linkLabel: '在线试玩',
     accent: '#C9B6FF',
     emblem: 'cabinet'
   },
   {
-    id: 'ghost-canyon',
+    id: 'crime-town',
     index: '04',
+    category: '休闲游戏',
+    title: '罪恶小城',
+    subtitle: '砚川市 · MINI GTA · 雨夜沙盒',
+    line: '在一座雨夜小城里开车、接活、甩掉通缉。',
+    role: '玩法 / 关卡 / 交互 / HUD',
+    year: '2026.10',
+    tags: ['开放世界', '驾驶', '通缉'],
+    link: 'games/crime-town/',
+    linkLabel: '在线试玩',
+    accent: '#7DFFA0',
+    emblem: 'city'
+  },
+  {
+    id: 'ghost-canyon',
+    index: '05',
     category: '肉鸽游戏',
     title: '幽影峡谷',
     subtitle: '裂隙巫妖 · 横版 Boss 战原型',
@@ -86,7 +101,7 @@ window.PROJECTS = [
  *  这里只放真实经历：系统拆解、方法笔记
  * ============================================================ */
 window.LAB = {
-  eyebrow: 'CASUAL GAME LAB / 05',
+  eyebrow: 'CASUAL GAME LAB / 06',
   title: '休闲游戏实验场',
   intro: '把「轻松」拆成可执行的系统：目标、反馈、节奏。',
   tags: ['玩法理解', '关卡节奏', 'UX 观察'],

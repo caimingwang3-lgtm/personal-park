@@ -412,11 +412,75 @@ function buildGem(accent, rng) {
   };
 }
 
+/* ---------------- 罪恶小城：雨夜霓虹街区 ---------------- */
+function buildCity(accent, rng) {
+  const g = new THREE.Group();
+  g.add(cloudPuff(1.08, -1.55, 0xFFFFFF, 0.9));
+
+  // 街区底盘
+  const plate = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.32, 1.44, 0.16, 6),
+    candy(0x2A2F38, { roughness: 0.8, metalness: 0.2 })
+  );
+  plate.position.y = -0.94;
+  g.add(plate);
+
+  // 建筑群
+  const heights = [1.15, 1.7, 1.0, 1.45];
+  const widths = [0.42, 0.4, 0.44, 0.38];
+  const bodyMats = [0x3A4050, 0x2F3644, 0x444B5E].map((c) => candy(c, { roughness: 0.6, metalness: 0.2 }));
+  const windowMat = candy(accent, { emissive: accent, emissiveIntensity: 0.8, roughness: 0.2 });
+  const windows = [];
+  for (let i = 0; i < 4; i++) {
+    const h = heights[i], w = widths[i], d = 0.42;
+    const x = -0.66 + i * 0.44;
+    const z = i % 2 ? 0.16 : -0.14;
+    const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), bodyMats[i % 3]);
+    b.position.set(x, -0.86 + h / 2, z);
+    g.add(b);
+    const floors = Math.max(1, Math.floor(h / 0.3));
+    for (let r = 0; r < floors; r++) {
+      [-0.08, 0.08].forEach((ox) => {
+        const win = new THREE.Mesh(new THREE.BoxGeometry(0.075, 0.1, 0.02), windowMat);
+        win.position.set(x + ox, -0.86 + 0.22 + r * 0.28, z + d / 2 + 0.012);
+        g.add(win);
+        windows.push(win);
+      });
+    }
+  }
+
+  // 通缉星
+  const star = new THREE.Mesh(
+    new THREE.OctahedronGeometry(0.16, 0),
+    candy(0xFFD23A, { emissive: 0xFFD23A, emissiveIntensity: 0.8, roughness: 0.2 })
+  );
+  star.position.set(1.02, 1.28, 0);
+  g.add(star);
+
+  const glow = glowSprite(accent, 5, 0.26);
+  glow.position.y = 0.1;
+  g.add(glow);
+  const sparkles = makeSparkles(18, 0xFFF3D0, 0.2, rng, 2.2, 2.6);
+  g.add(sparkles);
+
+  return {
+    group: g,
+    update(t, dt, energy) {
+      star.rotation.y = t * 0.8;
+      star.position.y = 1.28 + Math.sin(t * 1.4) * 0.08;
+      windowMat.emissiveIntensity = 0.55 + Math.sin(t * 2.2) * 0.18 + energy * 0.35;
+      glow.material.opacity = 0.12 + energy * 0.18;
+      updateSparkles(sparkles, t, energy);
+    }
+  };
+}
+
 export function createEmblem(type, accent) {
   const rng = makeRng((type.charCodeAt(0) || 7) * 97 + 13);
   if (type === 'lich') return buildGhost(accent, rng);
   if (type === 'cathedral') return buildCastle(accent, rng);
   if (type === 'peach') return buildPeach(accent, rng);
   if (type === 'cabinet') return buildCabinet(accent, rng);
+  if (type === 'city') return buildCity(accent, rng);
   return buildGem(accent, rng);
 }

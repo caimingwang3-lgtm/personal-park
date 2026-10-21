@@ -592,7 +592,7 @@
       wrongLeg: 0.17,            // 错误抬支撑脚
       pressureStart: 40,         // 支撑脚落后多少开始产生前倾压力
       pressureFactor: 0.20,
-      goodDamp: 0.42,            // 好步子只消除一部分失衡，容错更低
+      goodDamp: 0.35,            // 好步子只消除一部分失衡，容错更低
     },
     fallDuration: 1.35,
     milestonesEvery: 5,
@@ -604,45 +604,45 @@
       tag: '热身', accent: '#e5aa00', accentSoft: '#fff0a3',
       desc: '没有平衡辅助了，还有小坡和石子。',
       hazard: '小坡 + 石子 · 没有平衡辅助',
-      slopes: [{ at: 3.3, w: 1.4, h: 22 }],
-      stones: [{ at: 1.9, size: 9 }, { at: 4.7, size: 11 }],
-      tune: { goodTolerance: 30, recover: 1.05, fail: 0.94, wind: 0, windPeriod: 4.5, conveyor: 0, slip: 0, lowG: 1, chaser: 20 },
+      slopes: [{ at: 3.3, w: 1.7, h: 32 }],
+      stones: [{ at: 1.9, size: 11 }, { at: 4.7, size: 13 }],
+      tune: { goodTolerance: 26, recover: 1.00, fail: 0.88, wind: 0, windPeriod: 4.5, conveyor: 0, slip: 0, lowG: 1, chaser: 22 },
     },
     {
       id: 2, name: '落日海滩', short: '海滩', theme: 'beach', goal: 10, difficulty: 2,
       tag: '海风', accent: '#ff8752', accentSoft: '#ffd7a5',
       desc: '海风、坡道和石子，全都来添乱。',
       hazard: '侧风 + 坡道 · 没有平衡辅助',
-      slopes: [{ at: 3.4, w: 1.5, h: 24 }, { at: 7.1, w: 1.3, h: 28 }],
-      stones: [{ at: 2.1, size: 10 }, { at: 5.2, size: 12 }, { at: 8.7, size: 9 }],
-      tune: { goodTolerance: 27, recover: 0.95, fail: 0.92, wind: 0.11, windPeriod: 4.0, conveyor: 0, slip: 0, lowG: 1, chaser: 25 },
+      slopes: [{ at: 3.4, w: 1.8, h: 34 }, { at: 7.1, w: 1.6, h: 40 }],
+      stones: [{ at: 2.1, size: 12 }, { at: 5.2, size: 14 }, { at: 8.7, size: 11 }],
+      tune: { goodTolerance: 22, recover: 0.88, fail: 0.82, wind: 0.16, windPeriod: 3.6, conveyor: 0, slip: 0, lowG: 1, chaser: 28 },
     },
     {
       id: 3, name: '霓虹夜市', short: '夜市', theme: 'neon', goal: 13, difficulty: 3,
       tag: '逆流', accent: '#37dfc4', accentSoft: '#a8fff1',
       desc: '地板在倒着跑，坡上还有石子。',
       hazard: '逆流地板 + 坡道 · 停下就后退',
-      slopes: [{ at: 4.2, w: 1.5, h: 28 }, { at: 8.4, w: 1.3, h: 32 }],
-      stones: [{ at: 2.5, size: 11 }, { at: 6.4, size: 14 }, { at: 10.8, size: 10 }],
-      tune: { goodTolerance: 24, recover: 0.88, fail: 0.90, wind: 0.02, windPeriod: 6.5, conveyor: 20, slip: 0, lowG: 1, chaser: 29 },
+      slopes: [{ at: 4.2, w: 1.8, h: 40 }, { at: 8.4, w: 1.6, h: 45 }],
+      stones: [{ at: 2.5, size: 13 }, { at: 6.4, size: 16 }, { at: 10.8, size: 12 }],
+      tune: { goodTolerance: 19, recover: 0.78, fail: 0.78, wind: 0.06, windPeriod: 5.5, conveyor: 32, slip: 0, lowG: 1, chaser: 34 },
     },
     {
       id: 4, name: '雨夜公路', short: '雨路', theme: 'rain', goal: 17, difficulty: 4,
       tag: '湿滑', accent: '#7ab8ff', accentSoft: '#caebff',
       desc: '湿滑陡坡加碎石，落地全靠命硬。',
       hazard: '湿滑 + 陡坡 · 落脚会打滑',
-      slopes: [{ at: 3.1, w: 1.4, h: 30 }, { at: 7.4, w: 1.3, h: 34 }, { at: 12.6, w: 1.5, h: 32 }],
-      stones: [{ at: 4.9, size: 12 }, { at: 9.5, size: 14 }, { at: 14.3, size: 11 }, { at: 15.9, size: 13 }],
-      tune: { goodTolerance: 22, recover: 0.82, fail: 0.88, wind: 0.04, windPeriod: 5.4, conveyor: 0, slip: 0.10, lowG: 1, chaser: 33 },
+      slopes: [{ at: 3.1, w: 1.7, h: 42 }, { at: 7.4, w: 1.6, h: 47 }, { at: 12.6, w: 1.8, h: 45 }],
+      stones: [{ at: 4.9, size: 14 }, { at: 9.5, size: 16 }, { at: 14.3, size: 13 }, { at: 15.9, size: 15 }],
+      tune: { goodTolerance: 16, recover: 0.68, fail: 0.72, wind: 0.07, windPeriod: 4.6, conveyor: 0, slip: 0.16, lowG: 1, chaser: 40 },
     },
     {
       id: 5, name: '太空失重', short: '太空', theme: 'space', goal: 21, difficulty: 5,
       tag: '失重', accent: '#c18bff', accentSoft: '#ead6ff',
       desc: '低重力陡坡，踩到石子直接起飞。',
       hazard: '低重力 + 陡坡 · 没有平衡辅助',
-      slopes: [{ at: 4.5, w: 1.6, h: 32 }, { at: 10.3, w: 1.5, h: 36 }, { at: 16.5, w: 1.4, h: 34 }],
-      stones: [{ at: 2.8, size: 12 }, { at: 7.1, size: 15 }, { at: 12.9, size: 12 }, { at: 18.7, size: 14 }],
-      tune: { goodTolerance: 19, recover: 0.72, fail: 0.86, wind: 0.07, windPeriod: 6.8, conveyor: 0, slip: 0, lowG: 0.65, chaser: 37 },
+      slopes: [{ at: 4.5, w: 1.9, h: 45 }, { at: 10.3, w: 1.8, h: 50 }, { at: 16.5, w: 1.7, h: 48 }],
+      stones: [{ at: 2.8, size: 14 }, { at: 7.1, size: 17 }, { at: 12.9, size: 14 }, { at: 18.7, size: 16 }],
+      tune: { goodTolerance: 14, recover: 0.58, fail: 0.66, wind: 0.10, windPeriod: 5.8, conveyor: 0, slip: 0, lowG: 0.60, chaser: 47 },
     },
   ];
 
@@ -890,7 +890,7 @@
     confetti: [],
     stones: [],
     slopeSide: 0,
-    chaser: { x: -245, caught: false },
+    chaser: { x: -200, caught: false },
     shake: 0,
     flash: 0,
     ui: {
@@ -1068,7 +1068,7 @@
       hit: false,
     }));
     game.slopeSide = 0;
-    game.chaser = { x: -245, caught: false };
+    game.chaser = { x: -200, caught: false };
     game.shake = 0;
     game.flash = 0;
     game.goalX = game.level.goal * CFG.unitsPerMeter;
@@ -1175,7 +1175,7 @@
     game.stones = (LEVELS[index].stones || []).map((s, i) => ({
       id: i, worldX: s.at * CFG.unitsPerMeter, size: s.size, hit: false,
     }));
-    game.chaser = { x: -245, caught: false };
+    game.chaser = { x: -200, caught: false };
     updateHomeUI();
   }
 
@@ -1682,7 +1682,8 @@
     // 背后的大勺子会一直追，停太久就会被舀走。
     const chaser = game.chaser;
     if (chaser && !chaser.caught) {
-      chaser.x += (tune.chaser || 20) * dt;
+      const chaseSpeed = (tune.chaser || 20) + game.levelTime * 1.6;
+      chaser.x += chaseSpeed * dt;
       if (b.x - chaser.x > 330) chaser.x = b.x - 330;
       if (b.x - chaser.x < 64) {
         chaser.caught = true;
@@ -1700,7 +1701,7 @@
     if (Math.abs(game.wind) > .004) game.tip += game.wind * 1.9 * dt;
 
     // 身体始终有一点不可预测的晃动，不能靠“停在平衡点”挂机。
-    const drift = Math.sin(game.time * (1.05 + game.level.id * .16) + .4) * (0.04 + game.level.id * .008);
+    const drift = Math.sin(game.time * (1.05 + game.level.id * .16) + .4) * (0.075 + game.level.id * .013);
     game.tip += drift * dt;
 
     // 上坡顶得人往后仰，下坡又容易往前冲。
